@@ -9,9 +9,6 @@ import {
   ButtonElement,
 } from "./style";
 
-// Component(s)
-import Loader from "../Loader/Index";
-
 // GetAdvice
 import { getInfo } from "../../hooks/getAdvice";
 
@@ -49,18 +46,15 @@ const Card = () => {
       id: 0,
     },
   });
-  const [loading, setLoading] = useState(false);
 
   const handleGetRandomAdvice = () => {
-    getInfo("advice", setAdvice, setLoading);
+    getInfo("advice", setAdvice);
   };
 
   return (
     <CardElement>
       <QuoteIdElement>Advice #{advice.slip.id}</QuoteIdElement>
-      <QuoteElement>
-        {loading ? advice.slip.advice : <Loader />}
-      </QuoteElement>
+      <QuoteElement>{advice.slip.advice}</QuoteElement>
       <img
         src={
           windowDimensions.dynamicWidth < 600 ? divider_mobile : divider_desktop
