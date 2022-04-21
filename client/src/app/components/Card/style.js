@@ -18,15 +18,18 @@ export const QuoteIdElement = styled.span`
   font-size: 0.75rem;
   color: ${props => props.theme.colors.neon_green};
   text-transform: uppercase;
+  letter-spacing: .25rem;
 `;
 
 export const QuoteElement = styled.p`
   font-size: ${props => props.theme.typography.quote};
   color: ${props => props.theme.colors.light_cyan};
   text-align: center;
+  margin-top: 1rem;
   margin-bottom: 2rem;
 
   @media (max-width: 37.5rem) {
+    margin-top: .5rem;
     margin-bottom: 1rem;
   }
 `;
