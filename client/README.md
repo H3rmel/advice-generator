@@ -26,7 +26,7 @@ Compiled successfully!
 You can now view client in the browser.
 
   Local:            http://localhost:3000
-  On Your Network:  http://10.1.1.11:3000
+  On Your Network:  http://<your_ip_address_here>:3000
 
 Note that the development build is not optimized.
 To create a production build, use npm run build.
