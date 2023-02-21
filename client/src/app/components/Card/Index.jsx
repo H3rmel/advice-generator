@@ -1,21 +1,22 @@
 // React Hooks
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 // Styled Component(s)
 import {
-  CardElement,
-  QuoteIdElement,
-  QuoteElement,
   ButtonElement,
+  CardElement,
+  QuoteElement,
+  QuoteIdElement
 } from "./style";
 
 // GetAdvice
 import { getInfo } from "../../hooks/getAdvice";
 
 // SVGs
-const divider_mobile = "./assets/pattern-divider-mobile.svg";
-const divider_desktop = "./assets/pattern-divider-desktop.svg";
-const dice = "./assets/icon-dice.svg";
+import assets from "../../config/Svgs";
+// const divider_mobile = "./assets/pattern-divider-mobile.svg";
+// const divider_desktop = "./assets/pattern-divider-desktop.svg";
+// const dice = "./assets/icon-dice.svg";
 
 const Card = () => {
   // Divider responsivity code
@@ -47,22 +48,28 @@ const Card = () => {
     },
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleGetRandomAdvice = () => {
+    setLoading(true);
     getInfo("advice", setAdvice);
+    setLoading(false);
   };
 
   return (
     <CardElement>
       <QuoteIdElement>Advice #{advice.slip.id}</QuoteIdElement>
-      <QuoteElement>{advice.slip.advice}</QuoteElement>
+      <QuoteElement>{loading ? "Loading..." : advice.slip.advice}</QuoteElement>
       <img
         src={
-          windowDimensions.dynamicWidth < 600 ? divider_mobile : divider_desktop
+          windowDimensions.dynamicWidth < 600
+            ? assets["divider-mobile"]
+            : assets["divider-desktop"]
         }
         alt="Divider"
       />
       <ButtonElement onClick={handleGetRandomAdvice}>
-        <img src={dice} alt="Dice icon" />
+        <img src={assets.dice} alt="Dice icon" />
       </ButtonElement>
     </CardElement>
   );
