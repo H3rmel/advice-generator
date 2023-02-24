@@ -14,12 +14,8 @@ import { getInfo } from "../../hooks/getAdvice";
 
 // SVGs
 import assets from "../../config/Svgs";
-// const divider_mobile = "./assets/pattern-divider-mobile.svg";
-// const divider_desktop = "./assets/pattern-divider-desktop.svg";
-// const dice = "./assets/icon-dice.svg";
 
 const Card = () => {
-  // Divider responsivity code
   const [windowDimensions, getDimensions] = useState({
     dynamicWidth: window.innerWidth,
     dynamicHeight: window.innerHeight,
